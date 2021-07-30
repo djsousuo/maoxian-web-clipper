@@ -25,8 +25,11 @@ function exec({storageConfig: config, now, domain,
   const category = dealCategory(config, originalCategory, now, domain);
   const categoryPath = dealCategoryPath(config, originalCategory, now, domain, storagePath);
 
-  let pathValueHash = {storagePath, categoryPath};
-  let pathVariables = ['$STORAGE-PATH', '$CATEGORY-PATH'];
+  const title2= T.sanitizeFilename(title) ;
+
+ 
+  let pathValueHash = {storagePath, categoryPath, title2};
+  let pathVariables = ['$STORAGE-PATH', '$CATEGORY-PATH',  '$TITLE2'];
 
   let clippingPath = "clippingFolderName-not-specified";
   if (config.clippingFolderName) {
